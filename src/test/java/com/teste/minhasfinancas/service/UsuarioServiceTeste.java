@@ -1,4 +1,4 @@
-package service;
+package com.teste.minhasfinancas.service;
 
 import com.teste.minhasfinancas.expections.RegraNegocioException;
 import com.teste.minhasfinancas.model.entity.Usuario;
@@ -7,7 +7,6 @@ import com.teste.minhasfinancas.services.impl.UsuarioServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -93,7 +92,7 @@ public class UsuarioServiceTeste {
 
 
 //        Throwable exception = Assertions
-//                .assertThrows(() -> service.autenticar
+//                .assertThrows(() -> com.teste.minhasfinancas.service.autenticar
 //                        ("email@email.com", "123"));
 //
 //        Assertions.assertTrue(exception.getMessage().contains("Stuff"));

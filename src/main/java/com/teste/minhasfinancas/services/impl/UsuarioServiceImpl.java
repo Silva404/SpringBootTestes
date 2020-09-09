@@ -1,6 +1,6 @@
 package com.teste.minhasfinancas.services.impl;
 
-import com.teste.minhasfinancas.expections.AutenticationError;
+import com.teste.minhasfinancas.expections.AuthenticationError;
 import com.teste.minhasfinancas.expections.RegraNegocioException;
 import com.teste.minhasfinancas.model.entity.Usuario;
 import com.teste.minhasfinancas.model.repository.UserRepository;
@@ -25,11 +25,11 @@ public class UsuarioServiceImpl implements UsuarioService {
     public Usuario autenticar(String email, String senha) {
         Optional<Usuario> usuario = repository.findByEmail(email);
         if (!usuario.isPresent()) {
-            throw new AutenticationError("User not found.");
+            throw new AuthenticationError("User not found.");
         }
 
         if (!usuario.get().getSenha().equals(senha)) {
-            throw new AutenticationError("Invalid Password.");
+            throw new AuthenticationError("Invalid Password.");
         }
 
         return usuario.get();
