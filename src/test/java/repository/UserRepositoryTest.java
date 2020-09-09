@@ -1,7 +1,7 @@
 package repository;
 
-import model.entity.Usuario;
-import model.repository.UserRepository;
+import com.teste.minhasfinancas.model.entity.Usuario;
+import com.teste.minhasfinancas.model.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.Optional;
@@ -53,7 +55,7 @@ public class UserRepositoryTest {
     }
 
     @Test
-    public void shouldPersistUserInDB() {
+    public void shouldPersistUserInDataBase() {
         Usuario user = createUser();
 
         Usuario userSaved = repository.save(user);

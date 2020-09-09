@@ -1,4 +1,4 @@
-package expections;
+package com.teste.minhasfinancas.expections;
 
 public class RegraNegocioException extends RuntimeException {
 

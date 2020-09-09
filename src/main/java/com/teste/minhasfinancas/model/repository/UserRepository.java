@@ -1,6 +1,6 @@
-package model.repository;
+package com.teste.minhasfinancas.model.repository;
 
-import model.entity.Usuario;
+import com.teste.minhasfinancas.model.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

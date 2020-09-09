@@ -1,8 +1,9 @@
-package services;
+package com.teste.minhasfinancas.services;
 
-import model.entity.Usuario;
+import com.teste.minhasfinancas.model.entity.Usuario;
 import org.springframework.stereotype.Service;
 
+@Service
 public interface UsuarioService {
     Usuario autenticar(String email, String senha);
 

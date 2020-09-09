@@ -1,4 +1,4 @@
-package model.enums;
+package com.teste.minhasfinancas.model.enums;
 
 public enum TipoLancamento {
 

@@ -1,4 +1,4 @@
-package model.entity;
+package com.teste.minhasfinancas.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

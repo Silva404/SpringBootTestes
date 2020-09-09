@@ -1,8 +1,8 @@
-package model.entity;
+package com.teste.minhasfinancas.model.entity;
 
 import lombok.*;
-import model.enums.StatusLancamento;
-import model.enums.TipoLancamento;
+import com.teste.minhasfinancas.model.enums.StatusLancamento;
+import com.teste.minhasfinancas.model.enums.TipoLancamento;
 import org.springframework.data.convert.Jsr310Converters;
 
 import javax.persistence.*;

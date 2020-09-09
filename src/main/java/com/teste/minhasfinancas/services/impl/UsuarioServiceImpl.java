@@ -1,12 +1,12 @@
-package services.impl;
+package com.teste.minhasfinancas.services.impl;
 
-import expections.AutenticationError;
-import expections.RegraNegocioException;
-import model.entity.Usuario;
-import model.repository.UserRepository;
+import com.teste.minhasfinancas.expections.AutenticationError;
+import com.teste.minhasfinancas.expections.RegraNegocioException;
+import com.teste.minhasfinancas.model.entity.Usuario;
+import com.teste.minhasfinancas.model.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import services.UsuarioService;
+import com.teste.minhasfinancas.services.UsuarioService;
 
 import javax.transaction.Transactional;
 import java.util.Optional;
@@ -28,7 +28,7 @@ public class UsuarioServiceImpl implements UsuarioService {
             throw new AutenticationError("User not found.");
         }
 
-        if (usuario.get().getSenha().equals(senha)) {
+        if (!usuario.get().getSenha().equals(senha)) {
             throw new AutenticationError("Invalid Password.");
         }
 
