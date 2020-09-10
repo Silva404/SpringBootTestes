@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.teste.minhasfinancas.services.UsuarioService;
 
+import javax.swing.text.html.Option;
 import javax.transaction.Transactional;
 import java.util.Optional;
 
@@ -51,4 +52,10 @@ public class UsuarioServiceImpl implements UsuarioService {
                     ("Já existe um usuário cadastrado com este email.");
         }
     }
+
+    @Override
+    public Optional<Usuario> obterPorId(Long id) {
+        return repository.findById(id);
+    }
+
 }
