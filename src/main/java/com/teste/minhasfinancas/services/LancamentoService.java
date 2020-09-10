@@ -3,6 +3,7 @@ package com.teste.minhasfinancas.services;
 import com.teste.minhasfinancas.model.entity.Lancamento;
 import com.teste.minhasfinancas.model.enums.StatusLancamento;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,4 +22,6 @@ public interface LancamentoService {
     void authenticate(Lancamento lancamento);
 
     Optional<Lancamento> obterPorId(Long id);
+
+    BigDecimal obterSaldoPorUsuario(Long id);
 }

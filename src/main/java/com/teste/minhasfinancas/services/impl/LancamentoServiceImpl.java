@@ -3,6 +3,7 @@ package com.teste.minhasfinancas.services.impl;
 import com.teste.minhasfinancas.expections.RegraNegocioException;
 import com.teste.minhasfinancas.model.entity.Lancamento;
 import com.teste.minhasfinancas.model.enums.StatusLancamento;
+import com.teste.minhasfinancas.model.enums.TipoLancamento;
 import com.teste.minhasfinancas.model.repository.LancamentoRepository;
 import com.teste.minhasfinancas.services.LancamentoService;
 import org.springframework.data.domain.Example;
@@ -47,6 +48,7 @@ public class LancamentoServiceImpl implements LancamentoService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Lancamento> getByFilter(Lancamento lancamentoFilter) {
         Example example = Example.of(lancamentoFilter,
                 ExampleMatcher.matching()
@@ -88,5 +90,22 @@ public class LancamentoServiceImpl implements LancamentoService {
     @Override
     public Optional<Lancamento> obterPorId(Long id) {
         return repository.findById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public BigDecimal obterSaldoPorUsuario(Long id) {
+        BigDecimal receitas = repository.obterSaldoPorTipoDeLancamentoEUsuario(id, TipoLancamento.DESPESA);
+        BigDecimal despesas = repository.obterSaldoPorTipoDeLancamentoEUsuario(id, TipoLancamento.DESPESA);
+
+        if (receitas == null) {
+            receitas = BigDecimal.ZERO;
+        }
+
+        if (despesas == null) {
+            despesas = BigDecimal.ZERO;
+        }
+
+        return receitas.subtract(despesas);
     }
 }
